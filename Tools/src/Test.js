@@ -25,6 +25,8 @@ mo.resCfg = ResCfg;
 
 for(var i = 0, li = ResModule.length; i < li; ++i){
     console.log("--------------------------");
+    console.log("模块" + ResModule[i] + "所用的JS文件如下：");
+    console.log(mo.getLoadJs(ResModule[i], "appFiles", {}));
     console.log("模块" + ResModule[i] + "所用的资源如下：");
     console.log(mo.getLoadRes(ResModule[i], null, false));
     console.log("--------------------------");
