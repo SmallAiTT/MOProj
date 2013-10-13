@@ -8,15 +8,19 @@
 
 var moCore = require("./core/moCore.js");
 
-moCore.trans2Module("../../Game/cfg/Res.js", "./tmp/Res.js", [], "Res");
-moCore.trans2Module("../../Game/cfg/ResCfg.js", "./tmp/ResCfg.js", ["Res->./Res.js"], "ResCfg");
-moCore.trans2Module("../../Game/cfg/ResModule.js", "./tmp/ResModule.js", ["Res->./Res.js"], "ResModule");
-moCore.trans2Module("../../Game/mo/src/MOResUtils.js", "./tmp/mo.js", [], "mo");
+var projPath = "../../";
+var gamePath = projPath + "Game/"
+var tmpPath = "./tmp/";
 
-var Res = require("./tmp/Res.js");
-var ResCfg = require("./tmp/ResCfg.js");
-var ResModule = require("./tmp/ResModule.js");
-var mo = require("./tmp/mo.js");
+moCore.trans2Module(gamePath + "cfg/Res.js", tmpPath, [], "Res");
+moCore.trans2Module(gamePath + "cfg/ResCfg.js", tmpPath, ["Res->./Res.js"], "ResCfg");
+moCore.trans2Module(gamePath + "cfg/ResModule.js", tmpPath, ["Res->./Res.js"], "ResModule");
+moCore.trans2Module(gamePath + "mo/src/MOResUtils.js", tmpPath, [], "mo");
+
+var Res = require(tmpPath + "Res.js");
+var ResCfg = require(tmpPath + "ResCfg.js");
+var ResModule = require(tmpPath + "ResModule.js");
+var mo = require(tmpPath + "MOResUtils.js");
 mo.resCfg = ResCfg;
 
 for(var i = 0, li = ResModule.length; i < li; ++i){
