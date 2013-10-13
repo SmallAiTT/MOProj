@@ -22,7 +22,7 @@
  * @param {String} outputPath 	the output file path
  */
 
-var cfg = require("../cfg/cfg.js");
+var cfg = require("../../cfg/cfg.js");
 var fs = require("fs");
 
 var ResGen = function(dirCfgList, outputPath){
@@ -37,7 +37,7 @@ var ResGen = function(dirCfgList, outputPath){
 		"xml", "fnt", "tmx", "tsx", "ccbi", "font", "txt", "vsh", "fsh", "json", "js"
 	];
 
-    this.projDir = "../../Game/";
+    this.projDir = "../../../Game/";
 
 	this._walkDir = function(dir, pre){
 		if(!fs.existsSync(dir)) {

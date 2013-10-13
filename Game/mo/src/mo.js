@@ -7,8 +7,7 @@
  */
 
 var mo = mo || {};
-var ResCfg = ResCfg || {};
-mo.cfg = ResCfg;
+mo.cfg = {};
 var dm = dm || {};
 
 
@@ -212,7 +211,7 @@ mo.initCfg = function(cfg){
         ttFiles = mo.pushArr(ttFiles, mo.getLoadJs(cfg.testCfg, "ttFiles"));
         appFiles = mo.pushArr(appFiles, mo.getLoadJs(cfg.testCfg, "appFiles"));
         testFiles = mo.pushArr(testFiles, mo.getLoadJs(cfg.testCfg, "testFiles"));
-        mo.initFilesByDir(ttFiles, cfg.ttDir);
+        mo.initFilesByDir(ttFiles, cfg.moDir);
         mo.initFilesByDir(appFiles, cfg.projectDir);
         mo.initFilesByDir(testFiles, cfg.testDir);
     }else{
@@ -224,7 +223,7 @@ mo.initCfg = function(cfg){
             if(key == null || typeof key != "string") return;
             mo.getAppFiles(key, appFiles, "appFiles");
         }
-        mo.initFilesByDir(ttFiles, cfg.ttDir);
+        mo.initFilesByDir(ttFiles, cfg.moDir);
         mo.initFilesByDir(appFiles, cfg.projectDir);
     }
     cfg.appFiles = cfg.appFiles.concat(ttFiles, appFiles, testFiles);

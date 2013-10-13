@@ -7,14 +7,15 @@
  */
 
 var fs = require("fs");
+var moCore = require("./core/moCore.js");
 
-var ResStr = fs.readFileSync("../../Game/cfg/Res.js").toString();
+moCore.trans2Module("../../Game/cfg/Res.js", "./Res.js", [], "Res");
+moCore.trans2Module("../../Game/cfg/ResCfg.js", "./ResCfg.js", ["Res->./Res.js"], "ResCfg");
+moCore.trans2Module("../../Game/mo/src/mo.js", "./mo.js", [], "mo");
 
-fs.writeFileSync("./Res.js", ResStr + "\r\nmodule.exports = Res");
-
-var ResCfgStr = fs.readFileSync("../../Game/cfg/ResCfg.js").toString();
-
-fs.writeFileSync("./ResCfg.js", "var Res = require('./Res.js');\r\n" + ResCfgStr + "\r\nmodule.exports = ResCfg");
-
-var ResCfg = require("./ResCfg.js");
-console.log(ResCfg);
+var Res = require("./tmp/Res.js");
+var ResCfg = require("./tmp/ResCfg.js");
+var mo = require("./mo.js");
+mo.cfg = ResCfg;
+var arr = mo.getLoadRes(Res.e_js, null, false);
+console.log(arr);

@@ -17,7 +17,7 @@
         renderMode:1,       //Choose of RenderMode: 0(default), 1(Canvas only), 2(WebGL only)
         engineDir : "../HTML5/cocos2d/",
 
-        ttDir : "../pub/",
+        moDir : "../pub/",
         runMode : "test",
         testCfg : Res.TTPackImgTestLayer_js
     };
