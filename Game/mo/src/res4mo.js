@@ -141,9 +141,17 @@ mo.initFilesByDir = function(arr, dir){
  * Desc: init cfg before loading.
  * @param cfg
  */
-mo.initCfg = function(cfg){
+mo.initCfg = function(cfg, resCfg, baseCfgName){
     cfg.appFiles = cfg.appFiles || [];
+    if(resCfg != null) mo.resCfg = resCfg;
+    else mo.resCfg = mo.resCfg || ResCfg;
     var moFiles = [], appFiles = [], testFiles = [];
+    if(baseCfgName != null){
+        var baseCfg = mo.resCfg[baseCfgName];
+        moFiles = baseCfg["moFiles"] || [];
+        appFiles = baseCfg["appFiles"] || [];
+        testFiles = baseCfg["testFiles"] || [];
+    }
     if(cfg.runMode == "test"){
         moFiles = mo.pushArr(moFiles, mo.getLoadJs(cfg.testCfg, "moFiles"));
         appFiles = mo.pushArr(appFiles, mo.getLoadJs(cfg.testCfg, "appFiles"));

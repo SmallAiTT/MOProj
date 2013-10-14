@@ -15,15 +15,17 @@
         frameRate : 60,
         tag : "gameCanvas",
         renderMode:1,       //Choose of RenderMode: 0(default), 1(Canvas only), 2(WebGL only)
-        engineDir : "../HTML5/cocos2d/",
+        engineDir : "../../HTML5/cocos2d/",
 
-        moDir : "../pub/",
         runMode : "test",
-        testCfg : Res.TTPackImgTestLayer_js
+        testCfg : Res.a_js,
+
+        moDir : "./mo/",
+        resDir : "./res/320/"
     };
 
     window.addEventListener("DOMContentLoaded", function(){
-        tt.initCfg(c);
+        mo.initCfg(c, ResCfg, "base");
         //first load engine file if specified
         var s = d.createElement('script');
         /*********Delete this section if you have packed all files into one*******/

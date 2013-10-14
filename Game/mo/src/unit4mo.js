@@ -3,6 +3,14 @@
 var mo = mo || {};
 mo.resCfg = mo.resCfg || {};
 
+mo.getClazz = function(clazzPath){
+    var clazz = null;
+    var arr = clazzPath.split(".");
+    for(var i = 0; i < arr.length; ++i){
+        clazz = clazz == null ? window[arr[i]] : clazz[arr[i]];
+    }
+    return clazz;
+};
 /**
  * Desc:test for sprite.
  * @param cfgName

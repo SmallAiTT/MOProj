@@ -17,7 +17,7 @@ var cocos2dApp = cc.Application.extend({
     },
 
     applicationDidFinishLaunching : function(){
-        tt.initBase();
+        mo.initBase();
         //初始化导演
         var director = cc.Director.getInstance();
 
@@ -32,11 +32,11 @@ var cocos2dApp = cc.Application.extend({
         //设置FPS，默认为 1.0/60
         director.setAnimationInterval(1.0 / this.config.frameRate);
 
-        if(this.config.runMode == "test") tt.test(this.config.testCfg);
+        if(this.config.runMode == "test") mo.test(this.config.testCfg);
         else{
             //TODO enter point for game
             cc.log("++++++++++++++++enter point for game++++++++++++")
-            tt.test(this.config.testCfg);
+            mo.test(this.config.testCfg);
         }
         return true;
     }

@@ -121,7 +121,7 @@ var ResGen = function(dirCfgList, outputPath){
 };
 ResGen.js
 //Config your resources directorys here.
-var resGen = new ResGen(["res->res/", "src", "test", "mo/src->mo/"]);
+var resGen = new ResGen(["res->res/320/", "src", "test", "mo/src->mo/"]);
 
 //If you put this script in your project root, you can ignore this, then the projDir should be "./".
 //resGen.projDir = "../../testDir/Proj/";

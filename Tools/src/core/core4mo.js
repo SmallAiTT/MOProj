@@ -9,8 +9,8 @@
 var fs = require("fs");
 var path = require("path");
 
-var moCore = {};
-moCore.trans2Module = function(src, targetDir, requireArr, name){
+var core4mo = {};
+core4mo.trans2Module = function(src, targetDir, requireArr, name){
     if(!fs.existsSync(targetDir)) fs.mkdirSync(targetDir);
     var srcBaseName = path.basename(src);
     name = name || path.basename(src, ".js");
@@ -23,4 +23,18 @@ moCore.trans2Module = function(src, targetDir, requireArr, name){
     fs.writeFileSync(targetDir + srcBaseName, requireStr + content + "\r\nmodule.exports = " + name + ";");
 };
 
-module.exports = moCore;
+core4mo.merge2Module = function(srcs, target, requireArr, name){
+    var targetDir = path.dirname(target);
+    if(!fs.existsSync(targetDir)) fs.mkdirSync(targetDir);
+    var content = "";
+    for(var i = 0, li = srcs.length; i < li; ++i){
+        content += fs.readFileSync(srcs[i]).toString() + "\r\n";
+    }
+    var requireStr = "";
+    for(var i = 0, li = requireArr.length; i < li; ++i){
+        var strs = requireArr[i].split("->");
+        requireStr = requireStr + "var " + strs[0] + " = require('" + strs[1] + "');\r\n";
+    }
+    fs.writeFileSync(target, requireStr + content + "\r\nmodule.exports = " + name + ";");
+};
+module.exports = core4mo;

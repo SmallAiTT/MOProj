@@ -1,11 +1,9 @@
 /**
  * Created with JetBrains WebStorm.
- * User: Administrator
- * Date: 13-10-13
- * Time: 下午10:16
+ * User: small
+ * Date: 13-10-14
+ * Time: 下午5:18
  * To change this template use File | Settings | File Templates.
  */
 
-ResModule = [
-    Res.a_js
-];
+var uw = uw || {};

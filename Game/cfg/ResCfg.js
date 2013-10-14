@@ -1,24 +1,9 @@
 var ResCfg = {};
 
+ResCfg["base"] = {
+    appFiles : [Res.uw_js]
+};
 ResCfg[Res.a_js] = {
-    res : [Res.a1_png, Res.a2_png]
-};
-
-ResCfg[Res.b_js] = {
-    res : [Res.b1_png, Res.b2_png]
-};
-
-ResCfg[Res.c_js] = {
-    ref: [Res.a_js],
-    res : [Res.c1_png, Res.c2_png]
-};
-
-ResCfg[Res.d_js] = {
-    ref: [Res.a_js],
-    res : [Res.d1_png, Res.d2_png]
-};
-
-ResCfg[Res.e_js] = {
-    ref: [Res.a_js, Res.d_js],
-    res : [Res.e1_png, Res.e2_png]
+    res : [Res.a_png],
+    sprite : "uw.ASprite"
 };
