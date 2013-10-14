@@ -2,7 +2,6 @@
 
 var mo = mo || {};
 mo.resCfg = mo.resCfg || {};
-mo.unit = mo.unit || {};
 
 /**
  * Desc:test for sprite.

@@ -7,9 +7,7 @@
  */
 
 var mo = mo || {};
-mo.resCfg = {};
-var dm = dm || {};
-
+mo.resCfg = mo.resCfg || {};
 
 /**
  * Desc: merge res info into target.

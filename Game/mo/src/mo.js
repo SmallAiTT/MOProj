@@ -7,9 +7,6 @@
  */
 
 var mo = mo || {};
-mo.resCfg = {};
-var dm = dm || {};
-
 
 /**
  * Desc: put src (Array) into target (Array) from startIndex to endIndex.
