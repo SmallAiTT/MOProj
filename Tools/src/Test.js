@@ -15,12 +15,12 @@ var tmpPath = "./tmp/";
 moCore.trans2Module(gamePath + "cfg/Res.js", tmpPath, [], "Res");
 moCore.trans2Module(gamePath + "cfg/ResCfg.js", tmpPath, ["Res->./Res.js"], "ResCfg");
 moCore.trans2Module(gamePath + "cfg/ResModule.js", tmpPath, ["Res->./Res.js"], "ResModule");
-moCore.trans2Module(gamePath + "mo/src/MOResUtils.js", tmpPath, [], "mo");
+moCore.trans2Module(gamePath + "mo/src/res4mo.js", tmpPath, [], "mo");
 
 var Res = require(tmpPath + "Res.js");
 var ResCfg = require(tmpPath + "ResCfg.js");
 var ResModule = require(tmpPath + "ResModule.js");
-var mo = require(tmpPath + "MOResUtils.js");
+var mo = require(tmpPath + "res4mo.js");
 mo.resCfg = ResCfg;
 
 for(var i = 0, li = ResModule.length; i < li; ++i){
