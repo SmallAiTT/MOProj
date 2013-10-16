@@ -37,4 +37,11 @@ core4mo.merge2Module = function(srcs, target, requireArr, name){
     }
     fs.writeFileSync(target, requireStr + content + "\r\nmodule.exports = " + name + ";");
 };
+core4mo.require = function(js){
+    var callerJs = module.parent ? path.dirname(module.parent.filename) : __dirname;
+//    var filePath = path.relative(path.relative(toolPath, callerJs), js);
+    var filePath = path.relative("src/core", js);
+    if(filePath.indexOf(".") != 0) filePath = "./" + filePath;
+    return require(filePath);
+};
 module.exports = core4mo;
